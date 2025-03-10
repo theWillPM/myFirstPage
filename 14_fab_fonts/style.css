@@ -1,0 +1,134 @@
+/* I loaded the font from the web, but I still have to declare them in my CSS file: */
+:root{
+    /* font-family: "Bubblegum Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal; */
+    font-family: "Audiowide", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    /* The rem font-size is usually 14px, 16px, or 18px */
+    font-size: 16px;
+}
+
+/* Just a matter of preference. I like using border-box sizing. */
+*{
+    box-sizing: border-box;
+}
+
+/* I'm adding the "relative" position to these elements so I can use "absolute" position for their child elements */
+body, p {
+    position: relative;
+    margin: 0;
+}
+
+/* I want to set my main element to span the full height of my screen minus the header and footer, at least. */
+main {
+    /* For that, I have to calculate its minimum height: */
+    min-height: calc(100vh - 100px);
+
+    display: flex;
+    flex-direction: column;
+    padding: 0 12px;
+    row-gap: 100px;
+    margin-bottom: 100px;
+}
+
+header,
+footer {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #eee;
+    height: 50px;
+}
+
+/* Here I'm selecting ALL child elements of header and footer: */
+header > *,
+footer > * {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+    padding: 0 30px;
+    width: 33%;
+}
+
+fieldset {
+    width: 200px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 4px;
+    padding: 8px;
+}
+
+legend {
+    border: 1px solid rgb(218, 218, 218);
+    background-color: white;
+}
+
+form {
+    border: 1px solid #999;
+    border-radius: 4px;
+    padding: 8px;
+    background-color: rgb(223, 255, 244);
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-start;
+}
+
+/* To remove that ordinary blue underlined aspect of a link */
+footer>a{
+    text-decoration: underline;
+    color: black;
+}
+
+/* Here I am styling by back-to-top FAB */
+#back-to-top {
+    background-color: rgb(222, 222, 222);
+
+    /* This makes my square element become a circle */
+    border-radius: 50%;
+
+    display: flex;
+    /* These will adjust my text vertically and horizontally */
+    align-items: center;
+    justify-content: center;
+
+    /* border: 1px solid red; */
+
+    height: 40px;
+    width: 40px;
+
+    /* Set my font size according to "root element" */
+    font-size: 0.8rem;
+
+    /* Position: absolute places this relative to nearest ancestor which doesn't use "position: static" */
+    position: absolute;
+    z-index: 1;
+    right: 30px;
+    bottom: 60px;
+    transition: 0.4s;
+}
+
+#back-to-top {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    transition: 0.4s;
+}
+#back-to-top:hover {
+    border: 1px solid rgb(119, 255, 0);
+    cursor: pointer;
+    background-color: white;
+    font-weight: 600;
+    box-shadow: 2px 2px 8px black;
+    scale: 2;
+    transform: translateX(-2px) translateY(-2px);
+}
+
+body:hover>*{
+    font-size: 2rem;
+}
+
+#back-to-top:hover+a {
+    color: rgb(0, 255, 247);
+}
